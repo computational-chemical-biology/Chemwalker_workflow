@@ -1,1 +1,11 @@
 pandas
+pandas
+numpy
+networkx
+matplotlib
+sklearn
+scipy
+requests
+xmltodict
+pyteomics
+click

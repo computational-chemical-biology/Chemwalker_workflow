@@ -1,21 +1,49 @@
-workflowname: template_nextflow_workflow
-workflowdescription: template_nextflow_workflow
-workflowlongdescription: This is a template nextflow workflow for GNPS2
+workflowname: chemwalker_nextflow_workflow
+workflowdescription: chemwalker_nextflow_workflow
+workflowlongdescription: workflow to run the ms2lda tool. See https://doi.org/10.1093/bioinformatics/btad078 and https://github.com/computational-chemical-biology/ChemWalker/
 workflowversion: "0.1"
 workflowfile: nf_workflow.nf
 workflowautohide: false
 adminonly: false
 #This maps the parameters from an input form to those that will appear in nextflow
 parameterlist:
-    - displayname: File Selection
+    - displayname: Mandatory parameters
       paramtype: section
 
-    - displayname: Input Data Folder
-      paramtype: fileselector
-      nf_paramname: input_spectra_folder
-      formplaceholder: Enter the path to data
+    - displayname: GNPS FBMN or FBMN v2 task id
+      paramtype: text
+      nf_paramname: taskid
+      formplaceholder: Enter the GNPS FBMN or FBMN v2 task id
       formvalue: ""
-      targettaskfolder: input_spectra
-      optional: false
-      selectsinglefile: false
+      tooltip: "Task ID of the featured based molecular network"
+
+    - displayname: Workflow type (FBMN or V2)
+      paramtype: select
+      nf_paramname: workflow
+      formvalue: "FBMN"
+      options:
+        - value: "FBMN"
+          display: FBMN
+        - value: "V2"
+          display: V2
+
+    - displayname: Component (Molecular family) index
+      paramtype: text
+      nf_paramname: comp
+      formplaceholder: TODO DESCRIPTION FROM RICARDO
+      formvalue: ""
+      tooltip: "Component (Molecular family) index"
+
+    - displayname: Optional parameters
+      paramtype: section
+
+    - displayname: DB file (in case not selected anyone, COCONUT will be used)
+      paramtype: fileselector
+      nf_paramname: db
+      formplaceholder: DB file
+      formvalue: ""
+      targettaskfolder: input_db
+      optional: true
+      selectsinglefile: true # TODO IF DIFFERENT DATABASES ARE PERMITTED
       folderunroll: true
+    
