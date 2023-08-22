@@ -1,9 +1,15 @@
 # Nextflow Template
 
-To run the workflow to test simply do
+To test the workflow the next command should be executed:
 
 ```
-make run
+make run [-e --taskid $taskid --workflow $workflow --comp $comp --db $db --metfragpath $metfragpath
+```
+
+For documentation about the MS2LDA tool, please read the source tool [publication](https://doi.org/10.1093/bioinformatics/btad078) and [repository](https://github.com/computational-chemical-biology/ChemWalker/)
+
+The variables taskid, and comp are mandatory and do not have default values. 
+However, workflow, db and metfragpath have default values. The workflow will be FBMN if not specified V2, db will be COCONUT, and metfragpath will be the commandline present in the github for the version 2.3. 
 ```
 
 To learn NextFlow checkout this documentation:
