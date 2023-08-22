@@ -37,7 +37,19 @@ parameterlist:
     - displayname: Optional parameters
       paramtype: section
 
-    - displayname: DB file (in case not selected anyone, COCONUT will be used)
+    - displayname: DB 
+      paramtype: select
+      nf_paramname: db
+      formvalue: "COCONUT"
+      options:
+        - value: "COCONUT"
+          display: COCONUT
+        - value: "test"
+          display: test
+        - value: "User DB"
+          display: userdb
+
+    - displayname: DB file (only applies if User DB was selected)
       paramtype: fileselector
       nf_paramname: db
       formplaceholder: DB file

@@ -51,10 +51,10 @@ workflow {
     comp = params.comp
     metfragpath = Channel.fromPath("MetFrag2.3-CL.jar")
     
-    if(params.db == 'coconut'){
-        db = Channel.fromPath('data/COCONUT.psv')
-    } else if (params.db == 'validation') {
-        db = Channel.fromPath('data/validation_filtered_db.psv')
+    if(params.db == 'COCONUT'){
+        db = Channel.fromPath('/home/alberto/dbs/COCONUT.psv')
+    } else if (params.db == 'test') {
+        db = Channel.fromPath('/home/alberto/dbs/validation_filtered_db.psv')
     } else {
         db = Channel.fromPath(params.db)
     }
