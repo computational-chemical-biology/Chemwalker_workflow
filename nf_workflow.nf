@@ -19,11 +19,11 @@ process chemWalker {
     val taskid 
     val workflow
     val comp
-    file db 
-    file metfragpath
+    path db 
+    path metfragpath
 
     output:
-    file 'random_walk_output.tsv'
+    path 'random_walk_output.tsv'
 
     """
     python $TOOL_FOLDER/ChemWalker/bin/network_walk random-walk --taskid $taskid --workflow $workflow --comp $comp --db $db --metfragpath $metfragpath
