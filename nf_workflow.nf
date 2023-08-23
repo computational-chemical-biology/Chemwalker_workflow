@@ -53,14 +53,8 @@ workflow {
     taskid = params.taskid
     workflow = params.workflow
     comp = params.comp
-    metfragpath = Channel.fromPath("MetFrag2.3-CL.jar")
+    metfragpath = Channel.fromPath("$TOOL_FOLDER/bin/Chemwalker/bin/MetFrag2.3-CL.jar")
     
-    if(params.db == 'COCONUT'){
-        db = Channel.fromPath('/home/alberto/dbs/COCONUT.psv')
-    } else if (params.db == 'test') {
-        db = Channel.fromPath('/home/alberto/dbs/validation_filtered_db.psv')
-    } else {
-        db = Channel.fromPath(params.user_db)
-    }
+    db = Channel.fromPath(params.user_db)
     chemWalker(taskid, workflow, comp, db, metfragpath)
 }

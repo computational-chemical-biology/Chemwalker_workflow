@@ -37,25 +37,13 @@ parameterlist:
     - displayname: Optional parameters
       paramtype: section
 
-    - displayname: DB 
-      paramtype: select
-      nf_paramname: db
-      formvalue: "COCONUT"
-      options:
-        - value: "COCONUT"
-          display: COCONUT
-        - value: "test"
-          display: test
-        - value: "User DB"
-          display: userdb
-
-    - displayname: DB file (only applies if User DB was selected)
+    - displayname: DB file
       paramtype: fileselector
       nf_paramname: user_db
       formplaceholder: DB file
       formvalue: ""
       targettaskfolder: input_db
       optional: true
-      selectsinglefile: true # TODO IF DIFFERENT DATABASES ARE PERMITTED
+      selectsinglefile: true 
       folderunroll: true
     
