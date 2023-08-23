@@ -51,7 +51,7 @@ parameterlist:
 
     - displayname: DB file (only applies if User DB was selected)
       paramtype: fileselector
-      nf_paramname: db
+      nf_paramname: user_db
       formplaceholder: DB file
       formvalue: ""
       targettaskfolder: input_db

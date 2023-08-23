@@ -19,7 +19,7 @@ process chemWalker {
     val taskid 
     val workflow
     val comp
-    path db 
+    path db
     path metfragpath
 
     output:
@@ -60,7 +60,7 @@ workflow {
     } else if (params.db == 'test') {
         db = Channel.fromPath('/home/alberto/dbs/validation_filtered_db.psv')
     } else {
-        db = Channel.fromPath(params.db)
+        db = Channel.fromPath(params.user_db)
     }
     chemWalker(taskid, workflow, comp, db, metfragpath)
 }
