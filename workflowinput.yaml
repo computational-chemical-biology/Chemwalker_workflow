@@ -57,5 +57,5 @@ parameterlist:
       targettaskfolder: input_db
       optional: true
       selectsinglefile: true # TODO IF DIFFERENT DATABASES ARE PERMITTED
-      folderunroll: false
+      folderunroll: true
     
