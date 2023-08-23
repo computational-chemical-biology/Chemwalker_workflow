@@ -2,8 +2,12 @@
 nextflow.enable.dsl=2
 
 params.workflow = 'FBMN'
-params.db = 'coconut'
+params.db = 'COCONUT'
 
+// Workflow Boiler Plate
+params.OMETALINKING_YAML = "flow_filelinking.yaml"
+params.OMETAPARAM_YAML = "job_parameters.yaml"
+params.publishdir = "./nf_output"
 TOOL_FOLDER = "$baseDir/bin"
 
 process chemWalker {
