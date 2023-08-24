@@ -34,9 +34,6 @@ parameterlist:
       formvalue: ""
       tooltip: "Component (Molecular family) index"
 
-    - displayname: Optional parameters
-      paramtype: section
-
     - displayname: DB file
       paramtype: fileselector
       nf_paramname: user_db
