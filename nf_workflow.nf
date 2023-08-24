@@ -30,25 +30,6 @@ process chemWalker {
     """
 }
 
-process plotPanel {
-    publishDir "./nf_output", mode: 'copy'
-
-    conda "$TOOL_FOLDER/conda_env.yml"
-    """
-    echo "Hello, world!"
-    """
-}
-
-process plotGraph {
-    publishDir "./nf_output", mode: 'copy'
-
-    conda "$TOOL_FOLDER/conda_env.yml"
-    """
-    echo "Hello, world!"
-    """
-
-}
-
 workflow {
     taskid = params.taskid
     workflow = params.workflow

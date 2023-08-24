@@ -27,10 +27,10 @@ parameterlist:
         - value: "V2"
           display: V2
 
-    - displayname: Component (Molecular family) index
+    - displayname: Component (Molecular family) index. Use a 0 if you want to introduce all networks. 
       paramtype: text
       nf_paramname: comp
-      formplaceholder: TODO DESCRIPTION FROM RICARDO
+      formplaceholder: Choose the network component id from the FBMN to run the chemwalker on it. 
       formvalue: ""
       tooltip: "Component (Molecular family) index"
 
@@ -40,7 +40,7 @@ parameterlist:
     - displayname: DB file
       paramtype: fileselector
       nf_paramname: user_db
-      formplaceholder: DB file
+      formplaceholder: DB file in PSV format (| separator). 
       formvalue: ""
       targettaskfolder: input_db
       optional: true
