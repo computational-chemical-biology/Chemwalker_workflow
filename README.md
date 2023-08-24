@@ -1,4 +1,4 @@
-# Nextflow Template
+# chemwalker Nextflow
 
 To test the workflow the next command should be executed:
 
@@ -6,77 +6,50 @@ To test the workflow the next command should be executed:
 make run [-e --taskid $taskid --workflow $workflow --comp $comp --db $db --metfragpath $metfragpath
 ```
 
-For documentation about the MS2LDA tool, please read the source tool [publication](https://doi.org/10.1093/bioinformatics/btad078) and [repository](https://github.com/computational-chemical-biology/ChemWalker/)
+For documentation about the chemwalker tool, please read the source tool [publication](https://doi.org/10.1093/bioinformatics/btad078) and [repository](https://github.com/computational-chemical-biology/ChemWalker/)
 
 The variables taskid, and comp are mandatory and do not have default values. 
 However, workflow, db and metfragpath have default values. The workflow will be FBMN if not specified V2, db will be COCONUT, and metfragpath will be the commandline present in the github for the version 2.3. 
-```
+
 
 To learn NextFlow checkout this documentation:
 
 https://www.nextflow.io/docs/latest/index.html
 
-## Installation
+## Parameters in nextflow 
 
-You will need to have conda, mamba, and nextflow installed to run things locally. 
+The parameters in nextflow follow the next priority:
 
-## Deployment to GNPS2
+i. Parameters specified on the command line (--something value)
+ii. Parameters provided using the -params-file option
+iii. Config file specified using the -c my_config option
+iv. The config file named nextflow.config in the current directory
+v. The config file named nextflow.config in the workflow project directory
+vi. The config file $HOME/.nextflow/config
+vii. Values defined within the pipeline script itself (e.g. main.nf)
 
-In order to deploy, we have a set of deployment tools that will enable deployment to the various gnps2 systems. To run the deployment, you will need the following setup steps completed:
+In case you wish to set your parameters directly in nextflow, please use the next syntaxis:
 
-1. Checked out of the deployment submodules
-1. Conda environment and dependencies
-1. SSH configuration updated
-
-### Checking out the deployment submodules
-
-use the following commands from the deploy_gnps2 folder. 
-
-You might need to checkout the module, do this by running
 
 ```
-git submodule init
-git submodule update
+nextflow [options] ./nf_workflow.nf --spectra ${spectra_path} --library ${library_path} --ionmode (positive/negative) ${ion_mode} --download (yes/no) ${download} --ion_mode_exclusion (yes/no) ${ion_mode_exclusion}
 ```
 
-You will also need to specify the user on the server that you've been given that your public key has been associated with. If you want to not enter this every time you do a deployment, you can create a Makefile.credentials file in the deploy_gnps2 folder with the following contents
+## Run in a conda environment
+
+To run the workflow in a conda environment, there is a configuration file [conda_env.yml](bin/conda_env.yml). This file configured the environment named chemwalker-env. It can be created and activated by:
 
 ```
-USERNAME=<enter the username>
+conda env create -f bin/conda_env.yml
+conda activate chemwalker-env
 ```
 
-### Deployment Dependencies
-
-You will need to install the dependencies in GNPS2_DeploymentTooling/requirements.txt on your own local machine. 
-
-One way to do this is to use conda to create an environment, for example:
 
 ```
-conda create -n deploy python=3.8
-pip install -r GNPS2_DeploymentTooling/requirements.txt
+nextflow [options] ./nf_workflow.nf --annotations="$(annotations_file)" --path_to_spectra="$(path_to_spectra)" --ppm_tolerance=$(ppm_tolerance) --resume -c nextflow.config
 ```
 
-### SSH Configuration
 
-Also update your ssh config file to include the following ssh target:
+## Deployment in GNPS2
 
-```
-Host ucr-gnps2-dev
-    Hostname ucr-lemon.duckdns.org
-```
-
-### Deploying to Dev Server
-
-To deploy to development, use the following command, if you don't have your ssh public key installed onto the server, you will not be able to deploy.
-
-```
-make deploy-dev
-```
-
-### Deploying to Production Server
-
-To deploy to production, use the following command, if you don't have your ssh public key installed onto the server, you will not be able to deploy.
-
-```
-make deploy-prod
-```
+Check [Nexftlow template instructions from Mingxun Wang](https://github.com/Wang-Bioinformatics-Lab/Nextflow_Workflow_Template)
