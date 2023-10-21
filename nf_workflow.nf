@@ -3,7 +3,7 @@ nextflow.enable.dsl=2
 
 params.workflow = 'FBMN'
 params.db = 'COCONUT'
-
+params.savegraph=1
 // Workflow Boiler Plate
 params.OMETALINKING_YAML = "flow_filelinking.yaml"
 params.OMETAPARAM_YAML = "job_parameters.yaml"

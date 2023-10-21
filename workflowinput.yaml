@@ -20,10 +20,10 @@ parameterlist:
     - displayname: Workflow type (FBMN or V2)
       paramtype: select
       nf_paramname: workflow
-      formvalue: "GNPS2"
+      formvalue: "FBMN-gnps2"
       options:
-        - value: "GNPS2"
-          display: FBMN-gnps2
+        - value: "FBMN-gnps2"
+          display: GNPS2
         - value: "FBMN"
           display: FBMN
         - value: "V2"
