@@ -18,7 +18,7 @@ Views:
                 data: Identifier
             -   title: "plPeaks"
                 data: plPeaks
-- displayname: Download netowrk files
+-   displayname: Download netowrk files
     paramtype: section
 -   name: random_walk_graphml
     displayname: Randome walk structures graphml
