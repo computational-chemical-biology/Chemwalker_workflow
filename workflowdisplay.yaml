@@ -18,3 +18,11 @@ Views:
                 data: Identifier
             -   title: "plPeaks"
                 data: plPeaks
+- displayname: Download netowrk files
+    paramtype: section
+-   name: random_walk_graphml
+    displayname: Randome walk structures graphml
+    viewname: random_walk_graphml
+    displaytype: download
+    parameters:
+        filename: nf_output/random_walk_output.graphml

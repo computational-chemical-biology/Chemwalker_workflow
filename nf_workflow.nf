@@ -19,14 +19,17 @@ process chemWalker {
     val taskid 
     val workflow
     val comp
+    val savegraph
     path db
     path metfragpath
+    
 
     output:
     path 'random_walk_output.tsv'
+    path 'random_walk_output.graphml'
 
     """
-    python $TOOL_FOLDER/ChemWalker/bin/network_walk random-walk --taskid $taskid --workflow $workflow --comp $comp --db $db --metfragpath $metfragpath
+    python $TOOL_FOLDER/ChemWalker/bin/network_walk random-walk --taskid $taskid --workflow $workflow --comp $comp  --savegraph $savegraph --db $db --metfragpath $metfragpath
     """
 }
 
@@ -34,8 +37,9 @@ workflow {
     taskid = params.taskid
     workflow = params.workflow
     comp = params.comp
+    savegraph = params.savegraph
     metfragpath = Channel.fromPath("$TOOL_FOLDER/ChemWalker/bin/MetFrag2.3-CL.jar")
     
     db = Channel.fromPath(params.user_db)
-    chemWalker(taskid, workflow, comp, db, metfragpath)
+    chemWalker(taskid, workflow, comp, savegraph, db, metfragpath)
 }
