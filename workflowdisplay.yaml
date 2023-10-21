@@ -2,7 +2,7 @@ name: chemwalker_nextflow_workflow
 displayname: Chem Walker results
 Views:
 -   name: random_walk_output
-    displayname: Randome walk structures tsv
+    displayname: Random walk structures tsv
     viewname: random_walk_output
     displaytype: datatable
     parameters:
@@ -18,3 +18,9 @@ Views:
                 data: Identifier
             -   title: "plPeaks"
                 data: plPeaks
+-   name: random_walk_graphml
+    displayname: Random walk structures graphml
+    viewname: random_walk_graphml
+    displaytype: download
+    parameters:
+        filename: nf_output/random_walk_output.graphml

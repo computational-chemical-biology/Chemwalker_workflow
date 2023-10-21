@@ -20,12 +20,15 @@ parameterlist:
     - displayname: Workflow type (FBMN or V2)
       paramtype: select
       nf_paramname: workflow
-      formvalue: "FBMN"
+      formvalue: "FBMN-gnps2"
       options:
+        - value: "FBMN-gnps2"
+          display: GNPS2
         - value: "FBMN"
           display: FBMN
         - value: "V2"
           display: V2
+        
 
     - displayname: Component (Molecular family) index. Use a 0 if you want to introduce all networks. 
       paramtype: text
