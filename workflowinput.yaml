@@ -22,12 +22,13 @@ parameterlist:
       nf_paramname: workflow
       formvalue: "GNPS2"
       options:
+        - value: "GNPS2"
+          display: FBMN-gnps2
         - value: "FBMN"
           display: FBMN
         - value: "V2"
           display: V2
-        - value: "GNPS2"
-          display: FBMN-gnps2
+        
 
     - displayname: Component (Molecular family) index. Use a 0 if you want to introduce all networks. 
       paramtype: text
