@@ -37,7 +37,7 @@ parameterlist:
       formvalue: ""
       tooltip: "Component (Molecular family) index"
 
-    - displayname: DB file. !See https://ccms-ucsd.github.io/GNPSDocumentation/nap/#structure-database
+    - displayname: DB file. See https://ccms-ucsd.github.io/GNPSDocumentation/nap/#structure-database
       paramtype: fileselector
       nf_paramname: user_db
       formplaceholder: DB file in PSV format (| separator). 
