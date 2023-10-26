@@ -10,7 +10,7 @@ parameterlist:
     - displayname: Mandatory parameters
       paramtype: section
 
-    - displayname: GNPS FBMN or FBMN v2 task id
+    - displayname: GNPS, FBMN or FBMN v2 task id
       paramtype: text
       nf_paramname: taskid
       formplaceholder: Enter the GNPS FBMN or FBMN v2 task id
@@ -41,7 +41,8 @@ parameterlist:
       paramtype: fileselector
       nf_paramname: user_db
       formplaceholder: DB file in PSV format (| separator). 
-      formvalue: ""
+      formvalue: "LIBRARYLOCATION/STRUCTURE/Chemwalker/COCONUT.psv"
+      tooltip: "To create a user specific database, see https://ccms-ucsd.github.io/GNPSDocumentation/nap/#structure-database"
       targettaskfolder: input_db
       optional: true
       selectsinglefile: true 
