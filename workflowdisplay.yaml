@@ -8,6 +8,8 @@ Views:
     parameters:
         filename: nf_output/random_walk_output.tsv
         columns:
+            -   title: "Cluster index"
+                data: cluster index
             -   title: "Score"
                 data: Score
             -   title: "InChI"

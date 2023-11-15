@@ -10,10 +10,10 @@ parameterlist:
     - displayname: Mandatory parameters
       paramtype: section
 
-    - displayname: GNPS, FBMN or FBMN v2 task id
+    - displayname: GNPS2, FBMN or GNPS v2 task id
       paramtype: text
       nf_paramname: taskid
-      formplaceholder: Enter the GNPS FBMN or FBMN v2 task id
+      formplaceholder: Enter the GNPS2, FBMN or GNPS v2 task id
       formvalue: ""
       tooltip: "Task ID of the featured based molecular network"
 
