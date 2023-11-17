@@ -4,6 +4,9 @@ nextflow.enable.dsl=2
 params.workflow = 'FBMN'
 params.db = 'COCONUT'
 params.savegraph=1
+params.ion_mode=1
+params.adduct='[M+H]+'
+params.ppm=15
 // Workflow Boiler Plate
 params.OMETALINKING_YAML = "flow_filelinking.yaml"
 params.OMETAPARAM_YAML = "job_parameters.yaml"
@@ -22,14 +25,17 @@ process chemWalker {
     val savegraph
     path db
     path metfragpath
-    
+    val ion_mode
+    val adduct
+    val ppm
 
     output:
     path 'random_walk_output.tsv'
     path 'random_walk_output.graphml'
-
+    
     """
-    python $TOOL_FOLDER/ChemWalker/bin/network_walk random-walk --taskid $taskid --workflow $workflow --comp $comp  --savegraph $savegraph --db $db --metfragpath $metfragpath
+    # We build the **kw parameter: {"ispositive":1,"adduct":"[M+H]+","ppm":15}
+    python $TOOL_FOLDER/ChemWalker/bin/network_walk random-walk --taskid $taskid --workflow $workflow --comp $comp  --savegraph $savegraph --db $db --metfragpath $metfragpath --kw \'{"ispositive": $ion_mode, "adduct": "$adduct", "ppm": $ppm}\'
     """
 }
 
@@ -41,5 +47,5 @@ workflow {
     metfragpath = Channel.fromPath("$TOOL_FOLDER/ChemWalker/bin/MetFrag2.3-CL.jar")
     
     db = Channel.fromPath(params.user_db)
-    chemWalker(taskid, workflow, comp, savegraph, db, metfragpath)
+    chemWalker(taskid, workflow, comp, savegraph, db, metfragpath, params.ion_mode, params.adduct, params.ppm)
 }
