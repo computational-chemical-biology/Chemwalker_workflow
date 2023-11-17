@@ -34,7 +34,6 @@ process chemWalker {
     path 'random_walk_output.graphml'
     
     """
-    # We build the **kw parameter: {"ispositive":1,"adduct":"[M+H]+","ppm":15}
     python $TOOL_FOLDER/ChemWalker/bin/network_walk random-walk --taskid $taskid --workflow $workflow --comp $comp  --savegraph $savegraph --db $db --metfragpath $metfragpath --kw \'{"ispositive": $ion_mode, "adduct": "$adduct", "ppm": $ppm}\'
     """
 }

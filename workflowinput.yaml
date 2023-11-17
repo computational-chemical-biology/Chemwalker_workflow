@@ -84,8 +84,7 @@ parameterlist:
     - displayname: ppm tolerance
       paramtype: text
       nf_paramname: ppm
-      formplaceholder: 15
-      formvalue: ""
+      formvalue: "15"
 
     - displayname: DB file
       paramtype: fileselector
