@@ -37,6 +37,56 @@ parameterlist:
       formvalue: ""
       tooltip: "Component (Molecular family) index"
 
+    - displayname: Ionization mode
+      paramtype: select
+      nf_paramname: ion_mode
+      formvalue: 1
+      options:
+        - value: 1
+          display: Positive
+        - value: 0
+          display: Negative
+
+    - displayname: Adduct
+      paramtype: select
+      nf_paramname: adduct
+      formvalue: "[M+H]+"
+      options:
+        - value: "[M+H]+"
+          display: "[M+H]+"
+        - value: "[M+NH4]+"
+          display: "[M+NH4]+"
+        - value: "[M+Na]+"
+          display: "[M+Na]+"
+        - value: "[M+K]+"
+          display: "[M+K]+"
+        - value: "[M+K]+"
+          display: "[M+K]+"
+        - value: "[M+CH3OH+H]+"
+          display: "[M+CH3OH+H]+"
+        - value: "[M+ACN+H]+"
+          display: "[M+ACN+H]+"
+        - value: "[M+ACN+Na]+"
+          display: "[M+ACN+Na]+"
+        - value: "[M]+"
+          display: "[M]+"
+        - value: "[M-H]-"
+          display: "[M-H]-"
+        - value: "[M+Cl]-"
+          display: "[M+Cl]-"
+        - value: "[M+HCOO]-"
+          display: "[M+HCOO]-"
+        - value: "[M+CH3COO]-"
+          display: "[M+CH3COO]-"
+        - value: "[M]-"
+          display: "[M]-"
+
+    - displayname: ppm tolerance
+      paramtype: text
+      nf_paramname: ppm
+      formplaceholder: 15
+      formvalue: ""
+
     - displayname: DB file
       paramtype: fileselector
       nf_paramname: user_db
